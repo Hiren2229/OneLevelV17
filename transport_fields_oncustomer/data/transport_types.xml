@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="transport_one" model="transport.type">
+            <field name="name">Truck</field>
+        </record>
+        <record id="transport_two" model="transport.type">
+            <field name="name">Train</field>
+        </record>
+        <record id="transport_three" model="transport.type">
+            <field name="name">Ship</field>
+        </record>
+        <record id="transport_four" model="transport.type">
+            <field name="name">Plane</field>
+        </record>
+        <record id="transport_five" model="transport.type">
+            <field name="name">Express</field>
+        </record>
+    </data>
+</odoo>

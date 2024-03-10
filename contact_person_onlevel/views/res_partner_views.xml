@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_contact_person" model="ir.ui.view">
+            <field name="name">view.partner.form.contact.person</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sale']/field[@name='user_id']" position="after">
+                    <field name="x_aa_ol_default_sales_contact" domain="[('id', 'in', child_ids)]" invisible="is_company == False"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partners_form_add_transport_details" model="ir.ui.view">
+        <field name="name">view.res.partner.form.add.transport.details</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='purchase']" position="after">
+<!--               <div class="container">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-6">-->
+<!--                                <field name="x_aa_ol_truck" nolabel="1"/><label for="x_aa_ol_truck"/>-->
+<!--                            </div>-->
+<!--                            <div class="col-6">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                <group name="transport" string="Transport Days" class="w-100">
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+                                <field name="x_aa_ol_truck" style="width:unset !important;"/><label for="x_aa_ol_truck"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_train" style="width:unset !important;"/><label for="x_aa_ol_train"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_ship" style="width:unset !important;"/><label for="x_aa_ol_ship"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_plane" style="width:unset !important;"/><label for="x_aa_ol_plane"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_express" style="width:unset !important;"/><label for="x_aa_ol_express"/>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <field name="x_aa_ol_truck_days" readonly="x_aa_ol_truck == False"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_train_days" readonly="x_aa_ol_train == False"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_ship_days" readonly="x_aa_ol_ship == False"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_plane_days" readonly="x_aa_ol_plane == False"/>
+                            </div>
+                            <div>
+                                <field name="x_aa_ol_express_days" readonly="x_aa_ol_express == False"/>
+                            </div>
+                        </div>
+                    </div>
+                    <group>
+                        <field string="Default Transport Type" name="x_aa_ol_default_transport_type"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

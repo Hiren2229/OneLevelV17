@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mass_mailing_list_view_inherit" model="ir.ui.view">
+        <field name="name">mass.mailing.list.view.inherit</field>
+        <field name="model">mailing.list</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_list_view_form"/>
+        <field name="arch" type="xml">
+            <field name="toast_content" position="before">
+                <field name="x_aa_ol_lang" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+</odoo>

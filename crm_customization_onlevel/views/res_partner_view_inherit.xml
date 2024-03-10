@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_crm_customization" model="ir.ui.view">
+        <field name="name">view.partner.form.crm.customization</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='purchase']" position="after">
+                <group string="CRM" name="crm_custom">
+                    <field name="x_aa_ol_customer_category"/>
+                    <field name="x_aa_ol_customer_industry"/>
+                    <field name="x_aa_ol_customer_status"/>
+                    <field name="x_aa_ol_customer_abc"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

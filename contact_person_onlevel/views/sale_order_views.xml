@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_order_form_contact_person" model="ir.ui.view">
+            <field name="name">view.sale.order.form.contact.person</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='partner_details']/field[@name='partner_id']" position="after">
+                    <field name="x_aa_ol_default_sales_contact"
+                           domain="['|', ('id', '=', partner_id), '&amp;', ('parent_id', '=', partner_id), ('type', '=', 'contact')]"
+                           context="{'contact': 1}"
+                           options="{'no_create': True, 'no_create_edit': True, 'always_reload': True}"
+                           widget='selection'/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
