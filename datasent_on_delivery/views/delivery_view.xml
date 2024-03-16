@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <!-- add data sent field in tree view of pickings -->
+
+    <record id="view_picking_search_inherit_datasent" model="ir.ui.view">
+        <field name="name">stock.picking.search.datasent</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="x_aa_ol_data_sent" widget="priority" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>

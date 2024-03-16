@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_res_partner_filter_individuals" model="ir.ui.view">
+        <field name="name">res.partner.filter.view</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='type_person']" position="replace">
+                <filter string="Individuals" name="type_person" domain="[('is_company', '=', False),('type','not in',['invoice','delivery'])]"/>
+            </xpath>
+            <xpath expr="//filter[@name='type_person']" position="after">
+                <filter string="Invoice Addresses" name="is_invoice" domain="[('is_company', '=', False), ('type','in',['invoice'])]"/>
+                <filter string="Delivery Addresses" name="is_delivery" domain="[('is_company', '=', False), ('type','in',['delivery'])]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

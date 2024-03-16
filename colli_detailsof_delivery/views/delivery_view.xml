@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Show packaging (colli) details on delivery orders form-->
+    <record id="view_picking_form_add_colli_details" model="ir.ui.view">
+        <field name="name">view.picking.form.add.colli.details</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook/page[@name='note']" position="after">
+                <page string="Colli Details" name="colli">
+                    <field name="x_aa_ol_packaging_line" mode="tree">
+                        <form>
+                            <field name="x_aa_ol_colli"/>
+                            <field name="x_aa_ol_length"/>
+                            <field name="x_aa_ol_width"/>
+                            <field name="x_aa_ol_height"/>
+                            <field name="x_aa_ol_weight"/>
+                        </form>
+                        <tree string="colli lines" editable="bottom">
+                            <field name="x_aa_ol_colli"/>
+                            <field name="x_aa_ol_length"/>
+                            <field name="x_aa_ol_width"/>
+                            <field name="x_aa_ol_height"/>
+                            <field name="x_aa_ol_weight"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
