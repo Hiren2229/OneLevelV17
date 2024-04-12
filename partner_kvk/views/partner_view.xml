@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="replace"/>
+                <!-- <field name="property_account_position_id" position="replace"/> -->
+                <xpath expr="//field[@name='title']" position="after">
+                    <field name="kvk" />
+                    <field name="vat" placeholder="e.g. BE0477472701"
+                        required="0" readonly="not parent_id"/>
+                    <field name="property_account_position_id" options="{'no_create': True, 'no_open': True}"  groups="account.group_account_invoice"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
