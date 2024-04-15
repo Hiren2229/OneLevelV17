@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo noupdate="1">
+
+    <record id="sequence_for_invoice" model="ir.sequence">
+        <field name="name">Sequence For Invoice</field>
+        <field name="code">account.invoice</field>
+        <field name="padding">5</field>
+        <field name="prefix">0951%(y)s</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="sequence_for_bill" model="ir.sequence">
+        <field name="name">Sequence For Bill</field>
+        <field name="code">account.bill</field>
+        <field name="padding">5</field>
+        <field name="prefix">0991%(y)s</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="sequence_for_creditnote" model="ir.sequence">
+        <field name="name">Sequence For Creditnote</field>
+        <field name="code">account.creditnote</field>
+        <field name="padding">5</field>
+        <field name="prefix">0981%(y)s</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="sequence_for_refunds" model="ir.sequence">
+        <field name="name">Sequence For Refunds</field>
+        <field name="code">account.refunds</field>
+        <field name="padding">5</field>
+        <field name="prefix">0971%(y)s</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>
