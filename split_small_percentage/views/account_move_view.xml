@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_move_form_inh" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='journal_id']" position="before">
+                <label for="x_aa_ol_discount_date" string="Discount Date" invisible="move_type != 'in_invoice'" />
+                <!-- attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}" -->
+                <div class="d-flex">
+                    <field name="x_aa_ol_discount_date" force_save="1" placeholder="Date" invisible="move_type != 'in_invoice'"/>
+                </div>
+                <label for="x_aa_ol_day_till_discount_date" string="Days Till Discount Date" invisible="move_type != 'in_invoice'"/>
+                <div class="o_row" invisible="move_type != 'in_invoice'">
+                    <field name="x_aa_ol_day_till_discount_date"/> <span class="text-muted">Days</span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_invoice_tree_inh" model="ir.ui.view">
+        <field name="name">account.invoice.tree.inh</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <field name="invoice_date_due" position="after">
+                <field name="x_aa_ol_discount_date"/>
+                <field name="x_aa_ol_day_till_discount_date"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_account_invoice_filter_inh" model="ir.ui.view">
+        <field name="name">account.invoice.select.inh</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <filter name="due_date" position="after">
+                <filter name="discount_invoice" string="Discount Invoice" domain="[('x_aa_ol_discount_date', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="due_today_plus_three" string="Today +3 days" domain="['|', '&amp;', ('x_aa_ol_discount_date', '&lt;=', (context_today() + datetime.timedelta(3)).strftime('%Y-%m-%d')), ('x_aa_ol_discount_date', '&gt;=', context_today().strftime('%Y-%m-%d')), ('invoice_date_due', '&lt;=', (context_today() + datetime.timedelta(3)).strftime('%Y-%m-%d'))]"/>
+                <filter name="due_today_plus_five" string="Today +5 days" domain="['|', '&amp;', ('x_aa_ol_discount_date', '&lt;=', (context_today() + datetime.timedelta(5)).strftime('%Y-%m-%d')), ('x_aa_ol_discount_date', '&gt;=', context_today().strftime('%Y-%m-%d')), ('invoice_date_due', '&lt;=', (context_today() + datetime.timedelta(5)).strftime('%Y-%m-%d'))]"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>
