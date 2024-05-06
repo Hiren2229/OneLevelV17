@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- PO line custom tree view -->
+	<record id="purchase_order_line_custom_tree_view" model="ir.ui.view">
+        <field name="name">purchase.order.line.tree</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Order Lines" editable="bottom">
+                <field name="order_id" string="Purchase Order Number"/>
+                <field name="partner_id" string="Vendorname"/>
+                <field name="date_planned" string="Last date Goods Receipt" widget="date"/>
+                <field name="product_id"/>
+                <field name="name" widget="section_and_note_text"/>
+                <field name="product_qty"/>
+                <field name="qty_received"/>
+                <field name="qty_invoiced"/>
+                <field name="x_aa_ol_qty_diff"/>
+                <field name="x_aa_ol_price_unit_diff" sum="Total amount" widget="monetary"/>
+                <field name="price_unit"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- PO line search -->
+    <record id="inherited_purchase_order_line_search" model="ir.ui.view">
+        <field name="name">purchase.order.line.inherited.search</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_search"/>
+        <field name="arch" type="xml">
+            <filter name="hide_cancelled" position="after">
+                <filter name="price_unit_diff_not_zero"
+                	string="Price Unit Diff not Zero"
+                	domain="[('x_aa_ol_price_unit_diff', '!=', 0)]"/>
+            </filter>
+        </field>
+    </record>
+
+    <!-- PO line search -->
+    <record id="inherited_purchase_order_line_tree" model="ir.ui.view">
+        <field name="name">purchase.order.line.inherited.tree</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="before">
+                <field name="x_aa_ol_default_code"/>
+            </xpath>
+            <xpath expr="//field[@name='price_unit']" position="after">
+                <field name="product_qty" string="Order Quantity"/>
+                <field name="qty_received"/>
+                <field name="x_ad_ol_backorder_qty"/>
+            </xpath>
+            <xpath expr="//field[@name='product_uom']" position="after">
+                <field name="qty_received"/>
+                <field name="qty_invoiced"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- PO line action -->
+    <record id="purchase_order_line_custom_action" model="ir.actions.act_window">
+        <field name="name">Purchase Order Lines</field>
+        <field name="res_model">purchase.order.line</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_id" ref="po_line_customization.purchase_order_line_custom_tree_view"/>
+        <!-- <field name="search_view_id" ref="view_purchase_order_filter"/> -->
+    </record>
+
+    <menuitem
+        id="menu_purchase_order_line"
+        action="po_line_customization.purchase_order_line_custom_action" 
+        parent="account.menu_finance_reports" 
+        sequence="100"/>
+
+</odoo>

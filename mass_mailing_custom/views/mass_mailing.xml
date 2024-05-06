@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!--
+	============================================================================
+	Making the Mail Server Id Visible even when the Developer Mode is Off.
+	============================================================================
+	-->
+	<record model="ir.ui.view" id="view_mail_mass_mailing_form">
+			<field name="name">mass.mailing.form</field>
+			<field name="model">mailing.mailing</field>
+			<field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='mail_server_id']" position="replace">
+					<field name="mail_server_id" options="{'no_create': True, 'no_open': True}"/>
+				</xpath>
+			</field>
+	</record>
+</odoo>

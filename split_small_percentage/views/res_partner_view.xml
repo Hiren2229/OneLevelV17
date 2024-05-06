@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_property_form_inh" model="ir.ui.view">
+        <field name="name">res.partner.property.form.inh</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <field name="property_supplier_payment_term_id" position="after">
+                <label for="x_aa_ol_payment_day" string="Payment in Days"/>
+                <div class="o_row">
+                    <field name="x_aa_ol_payment_day"/> <span class="text-muted">Days</span>
+                </div>
+                <!--                update 92-contact-->
+                <label for="x_ad_ol_purchase_transport_days" string="Purchase Transport Days"/>
+                <div class="o_row">
+                    <field name="x_ad_ol_purchase_transport_days"/> <span class="text-muted">Days</span>
+                </div>
+                <!--                update 92-contact *** end ***  -->
+                <label for="x_aa_ol_discount_percentage" string="Discount Percentage"/>
+                <div class="o_row">
+                    <field name="x_aa_ol_discount_percentage"/> <span class="text-muted">%</span>
+                </div>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* split_small_percentage
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-18 07:23+0000\n"
+"PO-Revision-Date: 2020-06-18 07:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: split_small_percentage
+#: model_terms:ir.ui.view,arch_db:split_small_percentage.view_move_form_inh
+#: model_terms:ir.ui.view,arch_db:split_small_percentage.view_partner_property_form_inh
+msgid "<span class=\"text-muted\">Days</span>"
+msgstr "<span class=\"text-muted\">Dagen</span>"
+
+#. module: split_small_percentage
+#: model:ir.model,name:split_small_percentage.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: split_small_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_account_move__day_till_discount_date
+#: model_terms:ir.ui.view,arch_db:split_small_percentage.view_move_form_inh
+msgid "Days Till Discount Date"
+msgstr "kortingsdagen"
+
+#. module: split_small_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_account_payment__discount_amount
+msgid "Discount Amount"
+msgstr "Kortingsbedrag"
+
+#. module: split_small_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_account_move__discount_date
+msgid "Discount Date"
+msgstr "Kortingsdatum"
+
+#. module: split_small_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_res_partner__discount_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_res_users__discount_percentage
+#: model_terms:ir.ui.view,arch_db:split_small_percentage.view_partner_property_form_inh
+msgid "Discount Percentage"
+msgstr "Kortings Percentage"
+
+#. module: split_small_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_account_payment__early_payment
+msgid "Early Payment Discount"
+msgstr "Korting vroege betalingen"
+
+#. module: split_small_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_account_payment__is_discount_applied
+msgid "Is Discount Applied"
+msgstr "Wordt korting toegepast"
+
+#. module: split_small_percentage
+#: model:ir.model,name:split_small_percentage.model_account_move
+msgid "Journal Entries"
+msgstr "Boekingen"
+
+#. module: split_small_percentage
+#: model:ir.model.fields.selection,name:split_small_percentage.selection__account_payment__early_payment__no
+msgid "No"
+msgstr "Nee"
+
+#. module: split_small_percentage
+#: model:ir.model.fields,field_description:split_small_percentage.field_res_partner__payment_day
+#: model:ir.model.fields,field_description:split_small_percentage.field_res_users__payment_day
+#: model_terms:ir.ui.view,arch_db:split_small_percentage.view_partner_property_form_inh
+msgid "Payment in Days"
+msgstr "Betaling in dagen"
+
+#. module: split_small_percentage
+#: model:ir.model,name:split_small_percentage.model_account_payment
+msgid "Payments"
+msgstr "Betalingen"
+
+#. module: split_small_percentage
+#: model:ir.model,name:split_small_percentage.model_account_payment_register
+msgid "Register Payment"
+msgstr "Betaling registreren"
+
+#. module: split_small_percentage
+#: model:ir.model.fields.selection,name:split_small_percentage.selection__account_payment__early_payment__yes
+msgid "Yes"
+msgstr "Ja"
+
+#. module: split_small_percentage
+#: model_terms:ir.ui.view,arch_db:split_small_percentage.view_account_invoice_filter_inh
+msgid "Discount Invoice"
+msgstr "Met Betalingskorting"
