@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_move_view_payment_term_form_add_sale_purchase" model="ir.ui.view">
+            <field name="name">account.move.view.payment.term.form.add.sale.purchase</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_payment_term_id']" position="attributes">
+                    <attribute name="context">{'example_date': invoice_date, 'example_amount': tax_totals['amount_total'],'x_aa_invoice_bill': True}</attribute>
+                    <attribute name="invsible">not invoice_payment_term_id and move_type in ['in_invoice', 'in_refund', 'in_receipt']</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_payment_term_id']" position="after">
+                	<field name="invoice_payment_term_id" invsible="not invoice_payment_term_id and move_type in ['out_invoice', 'out_refund', 'out_receipt']" context="{'example_date': invoice_date, 'example_amount': tax_totals['amount_total'],'x_aa_vendor_bill': True}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

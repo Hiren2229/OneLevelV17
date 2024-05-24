@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_view_payment_term_form_add_sale_purchase" model="ir.ui.view">
+            <field name="name">account.view.payment.term.form.add.sale.purchase</field>
+            <field name="model">account.payment.term</field>
+            <field name="inherit_id" ref="account.view_payment_term_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="x_aa_ol_is_sale_payment_term"/>
+                    <field name="x_aa_ol_is_purchase_payment_term"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
