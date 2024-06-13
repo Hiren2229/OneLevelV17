@@ -1,0 +1,269 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_shop_customization
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-07 16:38+0000\n"
+"PO-Revision-Date: 2024-04-07 16:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.variants_customise
+msgid "<option value=\"\">Select RAL Color Options...</option>"
+msgstr "<option value=\"\">Wählen Sie RAL-Farboptionen</option>"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.cart_lines_onlevel
+msgid "<span style=\"padding-left:4px;\">pcs.</span><span>)</span>"
+msgstr "<span style=\"padding-left:4px;\">Stck.</span><span>)</span>"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.cart_lines_onlevel
+msgid "<span>(Total </span>"
+msgstr "<span>(Gesamt </span>"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.cart_lines_onlevel
+msgid "<span>(Total</span>"
+msgstr "<span>(Gesamt </span>"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.product_price_inh
+msgid "<span>(excl.VAT)</span>"
+msgstr "<span>(exkl. MwSt.)</span>"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_product_attribute_value
+msgid "Attribute Value"
+msgstr "Attributwert"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute_value__x_aa_ol_is_color
+msgid "Color"
+msgstr "Farbe"
+
+#. module: website_shop_customization
+#: model:ir.ui.menu,name:website_shop_customization.main_menu_color_code
+msgid "Color Code"
+msgstr "Farbcode"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_sale_order_line__x_aa_gp_color_code
+msgid "Color code"
+msgstr "Farbcode"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_documents_document__x_aa_ol_configuration_id
+msgid "Configuration id"
+msgstr "Konfigurations-ID"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_documents_document__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_ir_ui_view__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute_value__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_template__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_sale_order__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:website_shop_customization.field_website__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_documents_document
+msgid "Document"
+msgstr "Dokument"
+
+#. module: website_shop_customization
+#: model:ir.model.fields.selection,name:website_shop_customization.selection__color_code__x_aa_ol_color_group__no_charge
+msgid "Group 1: No Charge"
+msgstr "Gruppe 1: Keine Gebühr"
+
+#. module: website_shop_customization
+#: model:ir.model.fields.selection,name:website_shop_customization.selection__color_code__x_aa_ol_color_group__extra_charge
+msgid "Group 2: 60€ Extra Charge"
+msgstr "Gruppe 2: 60 € Aufpreis"
+
+#. module: website_shop_customization
+#: model:ir.model.fields.selection,name:website_shop_customization.selection__color_code__x_aa_ol_color_group__price_on_request
+msgid "Group 3: Price On Request"
+msgstr "Gruppe 3: Preis auf Anfrage"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_documents_document__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_ir_ui_view__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute_value__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_template__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_sale_order__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_sale_order_line__id
+#: model:ir.model.fields,field_description:website_shop_customization.field_website__id
+msgid "ID"
+msgstr "AUSWEIS"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.nav_bar_list_extended
+msgid "Imprint"
+msgstr "Impressum"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_product__x_aa_gp_is_color_code
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_template__x_aa_gp_is_color_code
+msgid "Is Color Code"
+msgstr "Ist Farbcode"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute__x_aa_ol_is_ral_color
+msgid "Is RAL Color Options"
+msgstr "Ist RAL-Farboptionen"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_documents_document____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_ir_ui_view____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_attribute_value____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_template____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_sale_order____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_sale_order_line____last_update
+#: model:ir.model.fields,field_description:website_shop_customization.field_website____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_product__x_aa_gp_long_description
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_template__x_aa_gp_long_description
+msgid "Long Description"
+msgstr "Lange Beschreibung"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__x_aa_ol_name
+msgid "Name"
+msgstr "Name"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.cart_lines_inherit
+msgid "Number"
+msgstr "Nummer"
+
+#. module: website_shop_customization
+#: code:addons/website_shop_customization/models/product_attribute.py:0
+#, python-format
+msgid "Only Surface has this value"
+msgstr "Nur Surface hat diesen Wert"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.variants_customise
+msgid "Please Fill Color Code"
+msgstr "Bitte geben Sie den Farbcode ein"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_product_attribute
+msgid "Product Attribute"
+msgstr "Produktattribut"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.product_template_form_view_inh
+msgid "Product Description"
+msgstr "Produktbeschreibung"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.cart_lines_onlevel
+msgid "RAL Code"
+msgstr "RAL-Code"
+
+#. module: website_shop_customization
+#: model:ir.actions.act_window,name:website_shop_customization.action_colorcode
+msgid "RAL Color Options"
+msgstr "RAL-Farboptionen"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_color_code__x_aa_ol_color_group
+msgid "RAL Groups"
+msgstr "RAL-Gruppen"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.breadcrumb_url_inherit
+msgid "Shop"
+msgstr "Geschäft"
+
+#. module: website_shop_customization
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_product__x_aa_gp_short_description
+#: model:ir.model.fields,field_description:website_shop_customization.field_product_template__x_aa_gp_short_description
+msgid "Short Description"
+msgstr "kurze Beschreibung"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.cart_lines_onlevel
+msgid "Unit"
+msgstr "Einheit"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_ir_ui_view
+msgid "View"
+msgstr "Ansicht"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_website
+msgid "Website"
+msgstr "Webseite"
+
+#. module: website_shop_customization
+#: model:ir.model,name:website_shop_customization.model_color_code
+msgid "color.code"
+msgstr ""
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.breadcrumb_url_inherit
+msgid "items"
+msgstr "Artikel"
+
+#. module: website_shop_customization
+#: model_terms:ir.ui.view,arch_db:website_shop_customization.product_price_inh
+msgid "per"
+msgstr "pro"

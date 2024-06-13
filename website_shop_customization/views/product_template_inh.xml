@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_add_class" model="ir.ui.view">
+        <field name="name">product_add_class</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.product')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.product_class</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[contains(@t-attf-class, 'has_alternative_products')]" position="attributes">
+                <attribute name="t-if"></attribute>
+            </xpath>
+            <xpath expr="//div[contains(@t-attf-class, 'has_alternative_products')]/div" position="attributes">
+                <attribute name="class" add="custom_accessory_product" separator=" "/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

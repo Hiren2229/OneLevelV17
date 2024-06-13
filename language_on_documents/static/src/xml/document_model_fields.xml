@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!-- <t t-name="language_on_documents.documentsInfoExtend">
+        <div class="o_inspector_section mt4 o_inspector_fields">
+            <table class="o_inspector_table table table-sm table-borderless">
+                <tbody>
+                    <t t-if="nbPreviews === 1">
+                        <t t-call="documents.DocumentsInspector.field">
+                            <t t-set="fieldName" t-translation="off">name</t>
+                        </t>
+                        <t t-if="isDebugMode and records[0].data.type === 'binary'" t-call="documents.DocumentsInspector.field">
+                            <t t-set="fieldName">file_extension</t>
+                        </t>
+                        <t t-if="records[0].data.type === 'url'" t-call="documents.DocumentsInspector.field">
+                            <t t-set="fieldName" t-translation="off">url</t>
+                        </t>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="fieldName" t-translation="off">partner_id</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false}"/>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="fieldName" t-translation="off">owner_id</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="icon" t-translation="off">fa fa-folder text-primary</t>
+                        <t t-set="fieldName" t-translation="off">folder_id</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="fieldName">x_aa_ol_language_id</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="fieldName">x_ad_ol_document_group</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false, canCreate: true, canCreateEdit: true, canQuickCreate: false}"/>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="fieldName">x_ad_ol_is_published</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="fieldName">x_ad_ol_online_name</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                    </t>
+                    <t t-call="documents.DocumentsInspector.field">
+                        <t t-set="fieldName">x_ad_ol_certification_country</t>
+                        <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                    </t>
+                    <tr class="o_inspector_divider"/>
+                    <tr t-if="nbPreviews === 1 &amp;&amp; records[0].data.res_id &amp;&amp; records[0].data.res_model_name &amp;&amp; records[0].data.res_model !== 'documents.document'" class="o_inspector_custom_field o_model_container">
+                        <td class="o_inspector_label align-middle">
+                            <label t-att-title="records[0].data.res_model_name" class="o_inspector_model_name">
+                                <i class="o_documents_model_color fa fa-file-text"/> <t t-esc="records[0].data.res_model_name"/>
+                            </label>
+                        </td>
+                        <td class="w-100 o_inspector_trigger_hover_target o_inspector_model_flex">
+                            <t t-set="isModifiableAttachment" t-value="records[0].data.is_editable_attachment and !isLocked and !isEditDisabled"/>
+                            <span t-att-class="'o_inspector_model o_inspector_object_name ' + (isModifiableAttachment ? 'o_inspector_model_editable' : '')" t-att-title="records[0].data.res_name"
+                            t-att-href="`#id=${records[0].data.res_id}&amp;model=${records[0].data.res_model}`"
+                            t-on-click.prevent="onClickResModel">
+                                <t t-esc="records[0].data.res_name || records[0].data.res_model"/>
+                            </span>
+                            <t t-if="isModifiableAttachment">
+                                <span class="o_inspector_model_buttons">
+                                    <span class="o_inspector_model_button o_inspector_model_edit fa fa-pencil" t-on-click.stop.prevent="onEditModel"/>
+                                    <span class="o_inspector_model_button o_inspector_model_delete fa-fw ps-1" t-on-click.stop.prevent="onDeleteModel">&#215;</span>
+                                </span>
+                            </t>
+                        </td>
+                    </tr>
+                    <tr class="o_inspector_custom_field">
+                        <td class="o_inspector_label align-baseline">
+                            <label>
+                                <i class="o_documents_tag_color fa fa-tag"/> Tags
+                            </label>
+                        </td>
+                        <td class="o_inspector_value w-100">
+                            <t t-call="documents.DocumentsInspector.tags"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="o_inspector_section o_inspector_section_rules mt-3" t-if="records[0].data.active and !isLocked and !isEditDisabled">
+            <label>
+                <i class="o_documents_action_color fa fa-play"/> Actions
+            </label>
+            <div class="o_inspector_rules">
+                <t t-foreach="getCommonRules()" t-as="rule" t-key="rule.resId">
+                    <div class="o_inspector_rule o_inspector_trigger_hover_target mb-2" t-att-data-id="rule.resId">
+                        <button t-att-tile="rule.data.note || ''" class="btn fa fa-play o_inspector_trigger_rule"
+                            t-on-click.stop.prevent="(ev) => this.triggerRule(rule)"/>
+                        <span class="ms-2" t-att-title="rule.data.note || ''"><t t-esc="rule.data.display_name"/></span>
+                    </div>
+                </t>
+            </div>
+        </div>
+        <t t-if="nbPreviews === 1 and records[0].data.previous_attachment_ids.count > 0">
+            <div class="o_inspector_section o_inspector_section_history mt-3">
+                <label><i class="o_documents_history_color fa fa-history"/> History</label>
+                <div class="o_inspector_history">
+                    <t t-if="state.previousAttachmentData" t-call="documents.DocumentsInspector.attachmentHistory"/>
+                </div>
+            </div>
+        </t>
+    </t>
+    
+    <t t-name="language_on_documents.documentsinspector_extend" t-inherit="documents.DocumentsInspector" t-inherit-mode="extension">
+        <xpath expr="//t[@t-call='documents.DocumentsInspector.documentsInfo']" position="replace">
+            <t t-call="language_on_documents.documentsInfoExtend" />
+        </xpath>
+    </t> -->
+    <t t-name="language_on_documents.document_inspector_documentsinfo_extend" t-inherit="documents.DocumentsInspector.documentsInfo" t-inherit-mode="extension">
+        <xpath expr="//tr[hasclass('o_inspector_divider')]" position="before">
+            <t t-call="documents.DocumentsInspector.field">
+                <t t-set="fieldName">x_aa_ol_language_id</t>
+                <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+            </t>
+            <t t-call="documents.DocumentsInspector.field">
+                <t t-set="fieldName">x_ad_ol_document_group</t>
+                <t t-set="additionalProps" t-value="{canOpen: false, canCreate: true, canCreateEdit: true, canQuickCreate: false}"/>
+            </t>
+            <t t-call="documents.DocumentsInspector.field">
+                <t t-set="fieldName">x_ad_ol_is_published</t>
+                <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+            </t>
+            <t t-call="documents.DocumentsInspector.field">
+                <t t-set="fieldName">x_ad_ol_online_name</t>
+                <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+            </t>
+            <t t-call="documents.DocumentsInspector.field">
+                <t t-set="fieldName">x_ad_ol_certification_country</t>
+                <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+            </t>
+        </xpath>
+    </t>
+</templates>

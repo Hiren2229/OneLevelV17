@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="color_code_tree_view" model="ir.ui.view">
+        <field name="name">color.code.tree.view</field>
+        <field name="model">color.code</field>
+        <field name="arch" type="xml">
+            <tree delete="true" editable="bottom">
+                <field name="x_aa_ol_name"/>
+                <field name="x_aa_ol_color_group"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="action_colorcode" model="ir.actions.act_window">
+        <field name="name">RAL Color Options</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">color.code</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="color_code_tree_view"/>
+    </record>
+    
+    <menuitem name="Color Code" id="main_menu_color_code" action="website_shop_customization.action_colorcode" parent="sale.menu_sale_config" sequence="0"/>
+</odoo>

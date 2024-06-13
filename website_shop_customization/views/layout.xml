@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="product_tabs_long_description_add" model="ir.ui.view">
+        <field name="name">website_shop_customization_product_tabs</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.product_tabs')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.website_shop_customization_product_tabs</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('tp-product-details-tab')]/ul/li[1]" position="attributes">
+                <attribute name="t-if">product.x_aa_gp_long_description</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('tp-product-details-tab')]/div[hasclass('tab-content')]/div[1]" position="attributes">
+                <attribute name="t-if">product.x_aa_gp_long_description</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('tp-product-details-tab')]/div[hasclass('tab-content')]/div[1]/div[hasclass('container-fluid')]" position="attributes">
+                <attribute name="class">container</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('tp-product-details-tab')]/div[hasclass('tab-content')]/div[2]/div[hasclass('container-fluid')]" position="attributes">
+                <attribute name="class">container</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('tp-product-details-tab')]/div[hasclass('tab-content')]/div[1]/div/div/div/div[hasclass('oe_structure')]" position="replace">
+                <span class="variant_long_description"></span>
+            </xpath>
+            <xpath expr="//div[hasclass('tp-product-details-tab')]/div[hasclass('tab-content')]/div[2]/div/div/div/div[hasclass('oe_structure')]" position="replace">
+                <span class="variant_long_description"></span>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_long_description_add" model="ir.ui.view">
+        <field name="name">website_shop_customization</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.product')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.product_long_description_add</field>
+        <field name="arch" type="xml">
+            <!-- Changes on 09 MAR 2024 Showing the All Parent Category BreadCrumb on Product Details Page [274] -->
+            <xpath expr="//ol[hasclass('bg-transparent')]//li[@t-if='category']" position="replace">
+                <t t-set="level" t-value="1"/>
+                <t t-if="category and not isinstance(category,str) and category.parents_and_self">
+                    <li t-foreach="category.parents_and_self" t-as="cat" class="breadcrumb-item">
+                        <a t-att-href="keep('/shop/category/%s' % slug(cat), category=level)" t-field="cat.name"/>
+                        <t t-set="level" t-value="int(level) + 1"/>
+                    </li>
+                </t>
+                <li t-elif="category" class="breadcrumb-item">
+                    <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name"/>
+                </li>
+            </xpath>
+            <!-- [274] Changes End -->
+        </field>
+    </record>
+    
+    <record id="breadcrumb_url_inherit" model="ir.ui.view">
+        <field name="name">website_shop_customization_breadcrumb</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.products')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.breadcrumb_url_inherit</field>
+        <field name="arch" type="xml">
+            <xpath expr="//ol" position="replace">
+                <ol t-if="category" class="breadcrumb m-0 p-0 bg-transparent">
+                    <li class="breadcrumb-item">
+                        <a href="/categories">Shop</a>
+                    </li>
+                    <t t-foreach="category.parents_and_self" t-as="cat">
+                        <li t-if="cat.id == category.id" class="breadcrumb-item">
+                            <span class="d-inline-block" t-field="cat.name"/> - <t t-esc="search_count"/> items
+                        </li>
+                        <li t-else="" class="breadcrumb-item">
+                            <t t-set="cat_url" t-value="False"/>
+                            <t t-foreach="cat.with_context(lang='en_GB').parents_and_self" t-as="cat2">
+                                <t t-if="not cat_url">
+                                    <t t-set="cat_url" t-value="slugify(cat2.name)"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-set="cat_url" t-value="cat_url + '/' + slugify(cat2.name)"/>
+                                </t>
+                            </t>
+                            <a t-att-href="keep('/categories/%s' % cat_url, category=0)" t-field="cat.name"/>
+                        </li>
+                    </t>
+                </ol>
+            </xpath>
+        </field>
+    </record>
+     <!-- Update [266] old xpath-->
+     <!-- <xpath expr="//table/thead/tr/th[2]" position="before">
+                <th>Number</th>
+            </xpath> -->
+            <!-- cart_products -->
+            <!-- <xpath expr="//tbody//td[hasclass('td-product_name')]" position="before"> -->
+     <!-- need module after uncomment line 99 to 105-->
+    <record id="cart_lines_inherit" model="ir.ui.view">
+        <field name="name">website_shop_customization_cart_lines</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.cart_lines')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.cart_lines_inherit</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='cart_products']//div[hasclass('flex-grow-1')]" position="before">
+                 <div class="text-center search_number">
+                    <t t-if="line.product_id.x_aa_ol_search_name">
+                        <b><span t-field="line.product_id.x_aa_ol_search_name"/></b>
+                    </t>
+                 </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="cart_sidebar_inherit" model="ir.ui.view">
+        <field name="name">website_shop_customization_cart_sidebar</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.cart_sidebar')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.cart_sidebar_inherit</field>
+        <field name="arch" type="xml">
+            <xpath expr="//a[hasclass('tp-link-dark')]" position="replace">
+                <a class="tp-link-dark" t-att-href="line.product_id.website_url">
+                    <t t-if="line.product_id.x_aa_ol_search_name">
+                        <span t-field="line.product_id.x_aa_ol_search_name"/> <br/>
+                    </t>
+                    <t t-esc="line.name_short"/>
+                </a>
+            </xpath>
+        </field>
+    </record>
+    <!-- [266] Changes End -->
+
+</odoo>

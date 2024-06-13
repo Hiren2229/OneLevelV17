@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="documents assets backend inherit" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/language_on_documents/static/src/js/documents_inspector.js"/>
+            <script type="text/javascript" src="/language_on_documents/static/src/js/documents_view_mixin.js"/>
+        </xpath>
+    </template>
+</odoo>

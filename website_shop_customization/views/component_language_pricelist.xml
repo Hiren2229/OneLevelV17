@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="component_language_pricelist_inh" model="ir.ui.view">
+        <field name="name">component_language_pricelist_inh</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.component_language_pricelist_selector')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.component_language_pricelist_inh</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('dropdown-menu')]/t[@t-if='pricelist_selector_visible']" position="attributes">
+                <attribute name="t-if"> pricelist_selector_visible and request.env.user.sudo().property_product_pricelist.selectable</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="website_selectable_pricelist_inh" model="ir.ui.view">
+        <field name="name">website_selectable_pricelist_inh</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.products')]"/>
+        <field name="type">qweb</field>
+        <field name="key">website_shop_customization.website_selectable_pricelist_inh</field>
+        <field name="arch" type="xml">
+            <xpath expr="//t[@t-set='website_sale_pricelists']" position="attributes">
+                <attribute name="t-value">False</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
