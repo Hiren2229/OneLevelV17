@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="product_template_form_view_inherited" model="ir.ui.view">
+            <field name="name">delivery.price.rule.form.inherit</field>
+            <field name="model">delivery.price.rule</field>
+            <field name="inherit_id" ref="delivery.view_delivery_price_rule_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[2]/div[hasclass('o_row')]" position="after">
+                    <label for="x_aa_ol_variable" string="Second Condition"/>
+                    <div class="o_row">
+                        <field name="x_aa_ol_variable"/>
+                        <field name="x_aa_ol_operator"/>
+                        <field name="x_aa_ol_max_value"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+
