@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="product_item_inh_website_link_show" inherit_id="website_sale.products_item">
+<!--        <xpath expr="//t[@t-set='combination_info']" position="replace">-->
+<!--            <t t-set="combination_info" t-value="product.with_context(search=search)._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)"/>-->
+<!--        </xpath>-->
+        <xpath expr="//div[@class='product_price']" position="replace">
+            <div></div>
+        </xpath>
+    </template>
+
+    <template id="product_inh_website_link_show" inherit_id="website_sale.product">
+        <xpath expr="//t[@t-set='combination']" position="replace">
+            <t t-set="combination" t-value="product.with_context(search=search)._get_first_possible_combination()"/>
+        </xpath>
+    </template>
+
+</odoo>
