@@ -15,4 +15,90 @@
             </xpath>
         </field>
     </record>
+    <!--update 231 -->
+    <record id="res_partner_crm_customer_codes_tree_view" model="ir.ui.view">
+        <field name="name">res_partner.crm_customer.codes.tree</field>
+        <field name="model">res.partner.crm.customer.codes</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Customer Codes"  editable="bottom">
+                 <field name="x_ad_ol_crm_code_group" context="{'default_x_ad_ol_crm_code_group': 'customer_category'}"
+                 invisible ="1"/>
+                <field name="name" />
+                <field name="key" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_crm_customer_codes_form_view" model="ir.ui.view">
+        <field name="name">res_partner.crm_customer.codes.form</field>
+        <field name="model">res.partner.crm.customer.codes</field>
+        <field name="arch" type="xml">
+            <form string="CRM Customer Codes">
+                  <field name="x_ad_ol_crm_code_group" context="{'default_x_ad_ol_crm_code_group': 'customer_category'}"
+                         invisible='1'/>
+                <label for="name"/>
+                <div>
+                    <field name="name"/>
+                     <field name="key" readonly="1"/>
+
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_partner_crm_customer_codes_action1" model="ir.actions.act_window">
+        <field name="name">CRM Customer Category Codes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.crm.customer.codes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('x_ad_ol_crm_code_group','=','customer_category')]</field>
+        <field name="context">{'default_x_ad_ol_crm_code_group': 'customer_category'}</field>
+    </record>
+
+    <record id="res_partner_crm_customer_codes_action2" model="ir.actions.act_window">
+        <field name="name">CRM Customer Industry Codes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.crm.customer.codes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('x_ad_ol_crm_code_group','=','customer_industry')]</field>
+        <field name="context">{'default_x_ad_ol_crm_code_group': 'customer_industry'}</field>
+    </record>
+
+    <record id="res_partner_crm_customer_codes_action3" model="ir.actions.act_window">
+        <field name="name">CRM Customer Status Codes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.crm.customer.codes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('x_ad_ol_crm_code_group','=','customer_status')]</field>
+        <field name="context">{'default_x_ad_ol_crm_code_group': 'customer_status'}</field>
+    </record>
+
+    <record id="res_partner_crm_customer_codes_action4" model="ir.actions.act_window">
+        <field name="name">CRM Customer ABC Codes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.crm.customer.codes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('x_ad_ol_crm_code_group','=','customer_abc')]</field>
+        <field name="context">{'default_x_ad_ol_crm_code_group': 'customer_abc'}</field>
+    </record>
+    <menuitem
+            id="menu_partner_crm_customer_codes_action1"
+            parent="contacts.res_partner_menu_config"
+            name="CRM Customer Category Codes"
+            action="crm_customization_onlevel.res_partner_crm_customer_codes_action1"/>
+    <menuitem
+            id="menu_partner_crm_customer_codes_action2"
+            parent="contacts.res_partner_menu_config"
+            name="CRM Customer Industry Codes"
+            action="crm_customization_onlevel.res_partner_crm_customer_codes_action2"/>
+    <menuitem
+            id="menu_partner_crm_customer_codes_action3"
+            parent="contacts.res_partner_menu_config"
+            name="CRM Customer Status Codes"
+            action="crm_customization_onlevel.res_partner_crm_customer_codes_action3"/>
+    <menuitem
+            id="menu_partner_crm_customer_codes_action4"
+            parent="contacts.res_partner_menu_config"
+            name="CRM Customer ABC Codes"
+            action="crm_customization_onlevel.res_partner_crm_customer_codes_action4"/>
 </odoo>

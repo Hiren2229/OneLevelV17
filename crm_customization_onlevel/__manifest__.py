@@ -21,6 +21,7 @@
                 'base', 'contacts'
                 ],
     'data': [
+        'security/ir.model.access.csv',
         'views/res_partner_view_inherit.xml',
         'data/crm_custom_parent_cron.xml'
     ],

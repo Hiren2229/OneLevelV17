@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    update 231-->
+    <data noupdate="1">
+
+        <record id="crm_customer_category1" model="res.partner.crm.customer.codes">
+            <field name="key">installer</field>
+            <field name="name">Installer</field>
+            <field name="x_ad_ol_crm_code_group">customer_category</field>
+        </record>
+        <record id="crm_customer_category2" model="res.partner.crm.customer.codes">
+            <field name="key">reseller_dealer</field>
+            <field name="name">Reseller / Dealer</field>
+            <field name="x_ad_ol_crm_code_group">customer_category</field>
+        </record>
+        <record id="crm_customer_category3" model="res.partner.crm.customer.codes">
+            <field name="key">general_custruction</field>
+            <field name="name">General construction company / contractor</field>
+            <field name="x_ad_ol_crm_code_group">customer_category</field>
+        </record>
+        <record id="crm_customer_category4" model="res.partner.crm.customer.codes">
+            <field name="key">architect_prescription</field>
+            <field name="name">Architect / Prescription</field>
+            <field name="x_ad_ol_crm_code_group">customer_category</field>
+        </record>
+        <record id="crm_customer_category5" model="res.partner.crm.customer.codes">
+            <field name="key">other</field>
+            <field name="name">Other</field>
+            <field name="x_ad_ol_crm_code_group">customer_category</field>
+        </record>
+        <record id="crm_customer_industry1" model="res.partner.crm.customer.codes">
+            <field name="key">glasing</field>
+            <field name="name">Glasing</field>
+            <field name="x_ad_ol_crm_code_group">customer_industry</field>
+        </record>
+        <record id="crm_customer_industry2" model="res.partner.crm.customer.codes">
+            <field name="key">metal</field>
+            <field name="name">Metal</field>
+            <field name="x_ad_ol_crm_code_group">customer_industry</field>
+        </record>
+        <record id="crm_customer_industry3" model="res.partner.crm.customer.codes">
+            <field name="key">interiour_wood</field>
+            <field name="name">Interiour / Wood</field>
+            <field name="x_ad_ol_crm_code_group">customer_industry</field>
+        </record>
+        <record id="crm_customer_industry4" model="res.partner.crm.customer.codes">
+            <field name="key">facade_window</field>
+            <field name="name">Facade / Window</field>
+            <field name="x_ad_ol_crm_code_group">customer_industry</field>
+        </record>
+        <record id="crm_customer_industry5" model="res.partner.crm.customer.codes">
+            <field name="key">garden</field>
+            <field name="name">Garden</field>
+            <field name="x_ad_ol_crm_code_group">customer_industry</field>
+        </record>
+
+        <record id="crm_customer_industry6" model="res.partner.crm.customer.codes">
+            <field name="key">other</field>
+            <field name="name">Other</field>
+            <field name="x_ad_ol_crm_code_group">customer_industry</field>
+        </record>
+
+        <record id="crm_customer_status1" model="res.partner.crm.customer.codes">
+            <field name="key">client</field>
+            <field name="name">Client</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+        <record id="crm_customer_status2" model="res.partner.crm.customer.codes">
+            <field name="key">cfd</field>
+            <field name="name">CFD needs to be filled out</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+        <record id="crm_customer_status3" model="res.partner.crm.customer.codes">
+            <field name="key">prospect</field>
+            <field name="name">Prospect</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+        <record id="crm_customer_status4" model="res.partner.crm.customer.codes">
+            <field name="key">suspect</field>
+            <field name="name">Suspect</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+        <record id="crm_customer_status5" model="res.partner.crm.customer.codes">
+            <field name="key">supplier</field>
+            <field name="name">Supplier</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+        <record id="crm_customer_status6" model="res.partner.crm.customer.codes">
+            <field name="key">competitor</field>
+            <field name="name">Competitor</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+        <record id="crm_customer_status7" model="res.partner.crm.customer.codes">
+            <field name="key">bankruptcy</field>
+            <field name="name">Banktrupty</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+        <record id="crm_customer_status8" model="res.partner.crm.customer.codes">
+            <field name="key">other</field>
+            <field name="name">Other</field>
+            <field name="x_ad_ol_crm_code_group">customer_status</field>
+        </record>
+
+        <record id="crm_customer_abc1" model="res.partner.crm.customer.codes">
+            <field name="key">A</field>
+            <field name="name">A (High potential)</field>
+            <field name="x_ad_ol_crm_code_group">customer_abc</field>
+        </record>
+        <record id="crm_customer_abc2" model="res.partner.crm.customer.codes">
+            <field name="key">B</field>
+            <field name="name">B (Medium potential)</field>
+            <field name="x_ad_ol_crm_code_group">customer_abc</field>
+        </record>
+        <record id="crm_customer_abc3" model="res.partner.crm.customer.codes">
+            <field name="key">C</field>
+            <field name="name">C (Low potential)</field>
+            <field name="x_ad_ol_crm_code_group">customer_abc</field>
+        </record>
+        <record id="crm_customer_abc4" model="res.partner.crm.customer.codes">
+            <field name="key">other</field>
+            <field name="name">Other</field>
+            <field name="x_ad_ol_crm_code_group">customer_abc</field>
+        </record>
+    </data>
+    <!--    update 231 end-->
+</odoo>

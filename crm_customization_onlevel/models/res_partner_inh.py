@@ -60,3 +60,29 @@ class ResPartnerInherit(models.Model):
                 'x_aa_ol_customer_status': record.parent_id.x_aa_ol_customer_status,
                 'x_aa_ol_customer_abc': record.parent_id.x_aa_ol_customer_abc,
             })
+
+# update 231
+class ResPartnerCrmCustomerCodes(models.Model):
+    _name = 'res.partner.crm.customer.codes'
+    _description = 'CRM Customer Codes'
+
+    name = fields.Char('CRM Customer Code ', required=True, translate=True)
+    key = fields.Char('CRM Customer Key ')
+    x_ad_ol_crm_code_group = fields.Selection(
+        [('customer_category', 'Customer Category'), ('customer_industry', 'Customer Industry'),
+         ('customer_status', 'Customer Status'), ('customer_abc', 'Customer ABC')], string="CRM Customer Codes Group")
+
+    @api.model_create_multi
+    def create(self, vals):
+        for rec in vals:
+            name = rec['name']
+            if 'key' in rec.keys():
+                key = rec['key']
+            else:
+                key = ''
+            if name:
+                if (not key) or (key == ''):
+                    key = name.lower().replace(" ", "_")
+            rec['key'] = key
+        return super().create(vals)
+# update 231 end
