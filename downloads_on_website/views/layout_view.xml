@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--
+    ============================================================================
+    Product Detail Page Add Download tab to display Documents from product
+    ============================================================================
+    -->
+    <record id="product_tabs_extended" model="ir.ui.view">
+        <field name="name">product_tabs_extended</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.product_tabs')]"/>
+        <field name="type">qweb</field>
+        <field name="key">downloads_on_website.product_tabs_extended</field>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('tp-product-details-tab')]/ul/li[3]" position="after">
+                <li t-if="is_view_active('website_sale_comparison.product_attributes_body')" class="nav-item o_not_editable">
+                    <a class="nav-link" data-bs-toggle="tab" href="#tp-product-documents-tab" role="tab" aria-selected="false">
+                        <div class="my-1 tp-tab-title o_not_editable">
+                            <span class="fa fa-download mr-1"/>
+                            Downloads
+                        </div>
+                    </a>
+                </li>
+            </xpath>
+            <xpath expr="//div[hasclass('tab-content')]/div[3]" position="after">
+                <div class="tab-pane fade" id="tp-product-documents-tab" role="tabpanel">
+                    <section class="container" id="product_full_spec">
+                    <div class="container">
+                        <div class="row py-4" id="dynamic_download_id">
+                            <t t-set="active_lang" t-value="list(filter(lambda lg : lg[0] == lang, languages))[0]"/>
+                            aas<t t-esc='active_lang'/>
+                            <t t-foreach="product.x_aa_ol_product_document_id.filtered(lambda l: l.x_aa_ol_language_id.code == active_lang[0] or not l.x_aa_ol_language_id)" t-as="attachment">
+                                <t t-if="attachment.type == 'binary'">
+                                    <a class="list-group-item list-group-item-action d-flex align-items-center oe_attachments py-1 px-2" t-attf-href="{attachment.attachment_id.x_aa_ol_base_url}/web/content/#{attachment.attachment_id.id}?&amp;download=true" target="_blank" data-no-post-process="">
+                                        <div class='oe_attachment_embedded o_image o_image_small mr-2 mr-lg-3' t-att-title="attachment.name" t-att-data-mimetype="attachment.mimetype"/>
+                                        <div class='oe_attachment_name text-truncate'><t t-esc='attachment.name'/><span t-if="attachment.x_aa_ol_language_id">(<t t-esc="attachment.x_aa_ol_language_id.name"/>)</span></div>
+                                    </a>
+                                </t>
+                                <t t-else="attachment.type == 'url'">
+                                    <a class="list-group-item list-group-item-action d-flex align-items-center oe_attachments py-1 px-2" t-attf-href="#{attachment.url}" target="_blank" data-no-post-process="">
+                                        <div class='oe_attachment_embedded o_image o_image_small mr-2 mr-lg-3' t-att-title="attachment.name" t-att-data-mimetype="attachment.mimetype"/>
+                                        <div class='oe_attachment_name text-truncate'><t t-esc='attachment.name'/><span t-if="attachment.x_aa_ol_language_id">(<t t-esc="attachment.x_aa_ol_language_id.name"/>)</span></div>
+                                    </a>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                </section>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="product_download_extended" model="ir.ui.view">
+        <field name="name">product_download_extended</field>
+        <field name="inherit_id" search="[('key', '=', 'theme_prime.product')]"/>
+        <field name="type">qweb</field>
+        <field name="key">downloads_on_website.product_extended</field>
+        <field name="arch" type="xml">
+            <xpath expr="//hr[@name='before_brand']" position="before">
+                <t t-if="combination_info.get('sku_code')">
+                    <div class="mt-2">
+                        <strong>SKU: </strong>
+                        <span class="oe_sku" style="white-space: nowrap;" t-esc="combination_info['sku_code']"/>
+                    </div>
+                </t>
+                <div class="mt-2" t-if="product.barcode">
+                    <strong>EAN : </strong>
+                    <span t-field="product.barcode"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

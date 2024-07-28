@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_product_form_ext_inherit" model="ir.ui.view">
+            <field name="name">product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='image_1920']" position="before">
+                    <field name="x_aa_ol_product_document_id" invisible="1"/>
+                    <field name="x_aa_ol_product_document_has_values" invisible="1"/>
+                    <field name="x_aa_ol_product_document_has_cut_values" invisible="1"/>
+                    <field name="x_aa_ol_product_document_has_bend_values" invisible="1"/>
+                    <field name="x_aa_ol_product_document_has_certification_values" invisible="1"/>
+                    <field name="x_ad_ol_product_document_has_mounting_manual_values" invisible="1"/>
+                    <field name="x_ad_ol_product_drawing_dwg_name_has_values" invisible="1"/>
+                    <field name="x_ad_ol_product_document_has_production_drawing_values" invisible="1"/>
+
+                    <div class="oe_avatar" style="max-width: 30px;">
+
+                        <div class="grid-container">
+                            <div class="grid-item">
+                                <button name="download_certification_file" type="object"
+                                        class="btn btn-secondary oe_avatar"
+                                        style="padding-top:0px !important;" title="Certification" invisible="x_aa_ol_product_document_has_certification_values ==False" >
+                                    <img src="product_document_page/static/src/image/certification.png"
+                                         class="img img-fluid oe_avatar" style="width:20px;margin:0;" alt="certification"/>
+                                </button>
+
+                            </div>
+                            <div class="grid-item">
+                                <button name="download_mounting_manual_file" type="object"
+                                        class="btn btn-secondary oe_avatar"
+                                        style="padding-top:0px !important;" title="Manual Instructions" invisible="x_ad_ol_product_document_has_mounting_manual_values==False">
+                                    <img src="product_document_page/static/src/image/manual_instructions.png"
+                                         class="img img-fluid oe_avatar" style="width:20px;margin:0;"  alt="manual_instructions"/>
+                                </button>
+                            </div>
+                            <div class="grid-item">
+                                <button name="download_production_drawing_file" type="object"
+                                        class="btn btn-secondary oe_avatar"
+                                        style="padding-top:0px !important;" title="Production Drawings" invisible="x_ad_ol_product_document_has_production_drawing_values==False">
+                                    <img src="product_document_page/static/src/image/production_drawings.png"
+                                         class="img img-fluid oe_avatar" style="width:20px;margin:0;" alt="production_drawings"/>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                     <div class="oe_avatar" style="max-width: 30px;">
+
+                        <div class="grid-container">
+                            <div class="grid-item">
+                                <button name="download_drawing_dwg_file" type="object"
+                                        class="btn btn-secondary oe_avatar"
+                                        style="padding-top:0px !important;" title="Customer DWG" invisible="x_ad_ol_product_drawing_dwg_name_has_values==False">
+                                    <img src="product_document_page/static/src/image/dwg.png"
+                                         class="img img-fluid oe_avatar" style="width:20px;margin:0;" alt="dwg"/>
+                                </button>
+                            </div>
+                            <div class="grid-item">
+                                <button name="download_cut_drawing_file" type="object"
+                                        class="btn btn-secondary oe_avatar"
+                                        style="padding-top:0px !important;" title="Cut Drawing" invisible="x_aa_ol_product_document_has_cut_values==False">
+                                    <img src="product_document_page/static/src/image/cutting.png"
+                                         class="img img-fluid oe_avatar" style="width:20px;margin:0;" alt="cutting"/>
+                                </button>
+
+                            </div>
+                            <div class="grid-item">
+                                <button name="download_bend_drawing_file" type="object"
+                                        class="btn btn-secondary oe_avatar"
+                                        style="padding-top:0px !important;" title="Bend Drawing" invisible="x_aa_ol_product_document_has_bend_values==False">
+                                    <img src="product_document_page/static/src/image/Bending.png"
+                                         class="img img-fluid oe_avatar" style="width:20px;margin:0;"  alt="Bending"/>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <button name="download_drawing_file" type="object" class="btn btn-secondary oe_avatar"
+                            style="padding-top:0px !important;" title="Customer Drawing" invisible="x_aa_ol_product_document_has_values==False">
+                        <img src="product_document_page/static/src/image/CustomerDrawing.png"
+                             class="img img-fluid oe_avatar" style="margin:0;" alt='Customer Drawing'/>
+                    </button>
+                </xpath>
+                <xpath expr="//sheet/notebook" position="inside">
+                    <page string="Documents" name="doc_info">
+                        <group>
+                            <!-- update 150 -->
+                            <group>
+                                <label for="x_aa_ol_product_drawing_name"/>
+                                <div>
+                                    <field name="x_aa_ol_product_drawing_name"/>
+                                    <button name="button_link_drawing" type="object" help="Link Drawings"
+                                            icon="fa-chain" title="Link Drawings"/>
+                                    <button name="button_un_link_drawing" type="object" help="UnLink Drawings"
+                                            icon="fa-chain-broken"  title="UnLink Drawings"/>
+                                </div>
+                                <label for="x_ad_ol_product_drawing_dwg_name"/>
+                                <div>
+                                    <field name="x_ad_ol_product_drawing_dwg_name"/>
+                                    <button name="button_link_drawing_dwg" type="object" help="Link Drawings DWG"
+                                            icon="fa-chain" title="Link Drawings"/>
+                                    <button name="button_un_link_drawing_dwg" type="object" help="UnLink Drawings DWG"
+                                            icon="fa-chain-broken" title="UnLink Drawings DWG"/>
+                                </div>
+
+                                <label for="x_aa_ol_product_cut_drawing"/>
+                                <div>
+                                    <field name="x_aa_ol_product_cut_drawing"/>
+                                    <button name="button_link_cut" type="object" help="Link Cut Drawings"
+                                            icon="fa-chain" title="Link Cut Drawings"/>
+                                    <button name="button_un_link_cut" type="object" help="Link Cut Drawings"
+                                            icon="fa-chain-broken" title="UnLink Cut Drawings"/>
+                                </div>
+
+
+                                <label for="x_aa_ol_product_bend_drawing"/>
+                                <div>
+                                    <field name="x_aa_ol_product_bend_drawing"/>
+                                    <button name="button_link_bend" type="object" help="Link Bend Drawings"
+                                            icon="fa-chain" title="Bend Drawings"/>
+                                    <button name="button_un_link_bend" type="object" help="Link Bend Drawings"
+                                            icon="fa-chain-broken" title="Link Bend Drawings"/>
+                                </div>
+                                <div>
+                                    <button name="button_link_all_documents" type="object" string="Link All"
+                                            help="Link All" icon="fa-chain" class="btn btn-outline-primary mr-2 mb-2" title="Link All"/>
+                                    <button name="button_un_link_all_documents" type="object" string="UnLink All"
+                                            help="UnLink All" icon="fa-chain-brokenchain"
+                                            class="btn btn-outline-primary mr-2 mb-2" title="UnLink All"/>
+                                </div>
+                            </group>
+                            <group>
+
+
+                                <label for="x_aa_ol_product_certification_name" string="Certifications"/>
+                                <div>
+                                    <field name="x_aa_ol_product_certification_name" invisible="1"/>
+                                    <button name="button_link_certification" type="object" help="Link Certification"
+                                            icon="fa-chain" title="Link Certification"/>
+                                    <button name="button_un_link_certification" type="object" help="Link Certification"
+                                            icon="fa-chain-broken"  title="Unlink Certification"/>
+                                </div>
+
+                                <label for="x_ad_ol_product_mounting_manual_name"/>
+                                <div>
+                                    <field name="x_ad_ol_product_mounting_manual_name"/>
+                                    <button name="button_link_mounting_manual" type="object" help="Link Mounting Manual"
+                                            icon="fa-chain" title="Link Mounting Manual"/>
+                                    <button name="button_un_link_mounting_manual" type="object"
+                                            help="UNLink Mounting Manual" icon="fa-chain-broken"  title="UNLink Mounting Manual"/>
+                                </div>
+
+                                <label for="x_ad_ol_product_production_drawing_name"/>
+                                <div>
+                                    <field name="x_ad_ol_product_production_drawing_name"/>
+                                    <button name="button_link_production_drawing" type="object"
+                                            help="Link Production Drawing"
+                                            icon="fa-chain" title="Link Production Drawing"/>
+                                    <button name="button_un_link_production_drawing" type="object"
+                                            help="Link Mounting Manual" icon="fa-chain-broken"  title="Link Mounting Manual"/>
+                                </div>
+
+                            </group>
+                            <!-- update 150 end -->
+                            <field name="x_aa_ol_product_document_id">
+                                <tree>
+                                    <field name="id" optional="hide" groups="base.group_no_one"/>
+                                    <field name="name" string="Document" required="True"/>
+                                    <!--   update 162 step3-->
+                                    <field name="x_ad_ol_document_group" string="Document Group"/>
+                                    <field name="x_ad_ol_is_published" string="Publish"/>
+                                    <!--   update 162 step3-->
+                                    <button name="download_file" type="object" class="oe_stat_button"
+                                            style="width: 2%;" icon="fa-arrow-down" title="Download"/>
+                                    <field name="res_model"/>
+                                    <field name="x_ad_ol_folder_full_path" optional="show"/>
+
+                                    <field name="url" optional="hide"/>
+                                    <field name="tag_ids" widget="documents_many2many_tags" optional="hide"/>
+                                    <field name="partner_id" optional="hide"/>
+                                    <field name="owner_id" widget="many2one_avatar_user" optional="hide"/>
+                                    <field name="lock_uid" optional="hide"/>
+                                    <field name="type" optional="hide"/>
+                                    <field name="create_date" widget="date" optional="hide"/>
+                                    <field name="activity_exception_decoration" widget="activity_exception"
+                                           optional="hide"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!--update 120-->
+ <record id="inherited_product_template_search_img_zip1" model="ir.ui.view">
+            <field name="name">product.template.inherited1.search.name</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='consumable']" position="after">
+                    <separator/>
+                    <filter name="no_customer_drawing"
+                            string="No Customer Drawing"
+                            domain="[('x_aa_ol_product_document_has_values', '=', False)]"/>
+                    <filter name="no_customer_dwg_drawing"
+                            string="No Customer DWG Drawing"
+                            domain="[('x_ad_ol_product_drawing_dwg_name_has_values', '=', False)]"/>
+                    <separator/>
+                </xpath>
+            </field>
+        </record>
+         <!--update 120  end -->
+        <!--update 222   -->
+        <record id="action_link_product_documents" model="ir.actions.server">
+            <field name="name">Link Products With Documents</field>
+            <field name="model_id" ref="product.model_product_template"/>
+            <field name="binding_model_id" ref="product.model_product_template"/>
+            <field name="binding_type">action</field>
+            <field name="state">code</field>
+            <field name="code">action = model.link_products_documents_wizard(records)</field>
+        </record>
+        <!--update 222  end  -->
+
+
+        <record id="action_link_product_certifications" model="ir.actions.server">
+            <field name="name">Link Products With Certifications</field>
+            <field name="model_id" ref="product.model_product_template"/>
+            <field name="binding_model_id" ref="product.model_product_template"/>
+            <field name="binding_type">action</field>
+            <field name="state">code</field>
+            <field name="code">action = model.link_products_certificate_wizard(records)</field>
+        </record>
+
+    </data>
+</odoo>

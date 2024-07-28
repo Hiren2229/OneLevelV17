@@ -124,11 +124,11 @@
             </t>
             <t t-call="documents.DocumentsInspector.field">
                 <t t-set="fieldName">x_ad_ol_is_published</t>
-                <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                <!-- <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/> -->
             </t>
             <t t-call="documents.DocumentsInspector.field">
                 <t t-set="fieldName">x_ad_ol_online_name</t>
-                <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/>
+                <!-- <t t-set="additionalProps" t-value="{canOpen: false, canCreate: false, canCreateEdit: false, canQuickCreate: false}"/> -->
             </t>
             <t t-call="documents.DocumentsInspector.field">
                 <t t-set="fieldName">x_ad_ol_certification_country</t>

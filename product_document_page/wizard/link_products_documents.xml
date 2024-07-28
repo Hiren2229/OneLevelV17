@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    update 222-->
+    <record id="view_link_products_documents_form" model="ir.ui.view">
+        <field name="name">link.products_documents.form</field>
+        <field name="model">link.products.documents</field>
+        <field name="arch" type="xml">
+            <form string="Link Products With Documents">
+                <sheet>
+                    <group>
+                        <group style="margin-top:1px; margin-bottom:1px;">
+                            <label for="drawing_name_option"/>
+                            <div>
+                                <field name="drawing_name_option" widget="checkbox"/>
+                            </div>
+                            <label for="drawing_name_dwg_option"/>
+                            <div>
+                                <field name="drawing_name_dwg_option" widget="checkbox"/>
+                            </div>
+                            <label for="cut_drawing_name_option"/>
+                            <div>
+                                <field name="cut_drawing_name_option" widget="checkbox"/>
+                            </div>
+                            <label for="bend_drawing_name_option"/>
+                            <div>
+                                <field name="bend_drawing_name_option" widget="checkbox"/>
+                            </div>
+                            <label for="mounting_manual_option"/>
+                            <div>
+                                <field name="mounting_manual_option" widget="checkbox"/>
+                            </div>
+
+                            <label for="production_drawing_name_option"/>
+                            <div>
+                                <field name="production_drawing_name_option" widget="checkbox"/>
+                            </div>
+
+
+                        </group>
+                    </group>
+                    <div class="address_format">
+                        <button name="options_select_all" string="Select all" type="object"
+                                style="margin-right:10px;"
+                                class="btn-primary"/>
+                        <button name="options_deselect_all" string="Deselect all" type="object"
+                                style="margin-right:10px;"
+                                class="btn-primary"/>
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="link_products_to_documents" string="Link " type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
