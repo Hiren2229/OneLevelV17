@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="unsubscribe_remove_onlevel" inherit_id="mass_mailing.unsubscribe">-->
+<!--        <xpath expr="//t[@t-if='contacts']" position="replace">-->
+<!--            <t t-if="contacts">-->
+<!--                <div id="info_state" class="alert alert-success" role="status">-->
+<!--                    <div id="subscription_info"></div>-->
+<!--                    <div id="div_feedback">-->
+<!--                        <p>We would appreciate if you provide feedback about why you updated<br/>your subscriptions</p>-->
+<!--                        <textarea class="form-control"  name="opt_out_feedback" cols="60" rows="3"></textarea>-->
+<!--                        <br/>-->
+<!--                        <div class="btn btn-primary text-left" id="button_feedback">Send</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </t>-->
+<!--        </xpath>-->
+<!--    </template>-->
+<!--    <template id="layout_remove_onlevel" inherit_id="mass_mailing.layout">-->
+<!--        <xpath expr="//t/xpath[@expr='//footer']//div[hasclass('container')]" position="replace">-->
+<!--        </xpath>-->
+<!--    </template>-->
+</odoo>
+
